@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use app\models\RequestInfo;
 
 class SiteController extends Controller
 {
@@ -52,32 +53,29 @@ class SiteController extends Controller
         ];
     }
 
+
+
     /**
-     * Displays homepage.
+     * Displays log Helper page.
      *
      * @return string
      */
-    public function actionIndex()
+    public function actionLoghelper()
     {
-        return $this->render('index');
+        return $this->render('loghelper');
     }
 
     /**
-     * Login action.
+     * Displays Hits on Homepage
      *
      * @return Response|string
      */
-
-
-
-
-    /**
-     * Displays about page.
-     *
-     * @return string
-     */
-    public function actionAbout()
+    public function actionIndex()
     {
-        return $this->render('about');
+        $model = new RequestInfo();
+
+        return $this->render('index', [
+            'model' => $model,
+        ]);
     }
 }
