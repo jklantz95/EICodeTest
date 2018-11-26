@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\RequestInfo;
+use app\models\processLog;
 
 class SiteController extends Controller
 {
@@ -62,7 +63,18 @@ class SiteController extends Controller
      */
     public function actionLoghelper()
     {
-        return $this->render('loghelper');
+        $model = new processLog();
+
+        if ($model->load(Yii::$app->request->post())) {
+            $model->process();
+            return $this->refresh();
+        }
+        else{
+            return $this->render('loghelper', [
+                'model' => $model,
+            ]);
+        }
+
     }
 
     /**
@@ -72,7 +84,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new RequestInfo();
+
+        $model = new requestInfo();
 
         return $this->render('index', [
             'model' => $model,
