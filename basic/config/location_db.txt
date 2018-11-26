@@ -1,0 +1,8 @@
+﻿# A 'database' of IP Mappings
+#
+222.221.244.138:Zimbabwe
+116.236.227.50:New York 
+123.125.66.*:North Carolina
+58.248.98.185:Uk, unknown
+92.83.167.207:France
+124.*.*.*:Baden-Württemberg
