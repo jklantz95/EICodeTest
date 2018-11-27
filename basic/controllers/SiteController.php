@@ -66,7 +66,7 @@ class SiteController extends Controller
         $model = new processLog();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->process();
+            $model->process(Yii::$app->request->post("processLog")['filename']);
             return $this->refresh();
         }
         else{

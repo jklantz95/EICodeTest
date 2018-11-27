@@ -16,15 +16,18 @@ class processLog extends Model
      * Retrieves a list of hits by location from the db and returns them to the front end
      * @return An array of hits by location
      */
-    public function process()
+    public function process($file_index)
     {
+
+        Yii::$app->db->createCommand('DELETE FROM logData')->execute();
+
+        $logfiles = $this->getLogs();
+
         /**
          *  The Next Section of code was sampled from https://docstore.mik.ua/orelly/webprog/pcook/ch11_14.htm
          */
-        $log_file = "../logs/";
-        print("hello\n");
+        $log_file = "../logs/" . $logfiles[$file_index];
         $pattern = '/^([^ ]+) ([^ ]+) ([^ ]+) (\[[^\]]+\]) "(.*)" ([0-9\-]+) ([0-9\-]+) "(.*)" "(.*)"$/';
-
         $file = fopen($log_file,'r') or die($php_errormsg);
 
         $locations = Yii::$app->db->createCommand('SELECT * FROM locations ')->queryAll();
