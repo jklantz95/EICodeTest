@@ -1,6 +1,0 @@
-﻿# This is a log of visitors to your site
-# It's slightly modified from the standard apache format
-222.221.244.138 - - [27/Mar/2010:14:20:04 -0400] "GET /CXg?FBXWY HTTP/1.1" 301 - "http://user.qzone.qq.com/420785012" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; icafe8; .NET CLR 2.0.50727)"
-116.236.227.50 - - [27/Mar/2010:14:20:26 -0400] "GET /Cc5?K71r0Q0N8 HTTP/1.1" 200 - "http://b.qzone.qq.com/cgi-bin/blognew/blog_output_data?uin=954919883&blogid=1268137245&styledm=ctc.qzonestyle.gtimg.cn&imgdm=ctc.qzs.qq.com&bdm=b.qzone.qq.com&mode=2&numperpage=15&blogseed=0.07604838346767906&property=GoRE&timestamp=1269713707" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322)"
-123.125.66.27 - - [27/Mar/2010:14:21:20 -0400] "GET /CZE?1P8M7J60P HTTP/1.1" 301 - "-" "Baiduspider+(+http://www.baidu.com/search/spider.htm)"
-123.125.66.21 - - [27/Mar/2010:14:21:24 -0400] "GET /CYU?xN0O0N HTTP/1.1" 301 - "-" "Baiduspider+(+http://www.baidu.com/search/spider.htm)"
