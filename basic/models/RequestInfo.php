@@ -39,12 +39,12 @@ class RequestInfo extends Model
     public function chartData()
     {
         $hits = $this->hits();
-        $graphData[0] = array('Location', 'Hits');
+        $chartData[0] = array('Location', 'Hits');
         $count = 1;
         foreach($hits as $hit){
-            $graphData[$count++] = array($hit['location'],  (int)$hit[ 'COUNT(*)']);
+            $chartData[$count++] = array($hit['location'],  (int)$hit[ 'COUNT(*)']);
         }
-        return $graphData;
+        return $chartData;
     }
 
 
