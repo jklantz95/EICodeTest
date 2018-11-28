@@ -32,6 +32,21 @@ class RequestInfo extends Model
             ->queryAll();
     }
 
+    /**
+     * Retrieves an array of correctly structured hits per location for a graph
+     * @return an array of hit info for a graph
+     */
+    public function chartData()
+    {
+        $hits = $this->hits();
+        $graphData[0] = array('Location', 'Hits');
+        $count = 1;
+        foreach($hits as $hit){
+            $graphData[$count++] = array($hit['location'],  (int)$hit[ 'COUNT(*)']);
+        }
+        return $graphData;
+    }
+
 
 
 }
