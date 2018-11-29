@@ -18,10 +18,18 @@ $dataProvider = new ArrayDataProvider([
 ]);
 
 ?>
-<div class="site-index" style="padding-top: 2em">
-    <h2>Information On Hits For <?=$hits[0]['location']?></h2>
+
+<style>
+    td {
+        max-width: 25vw;
+    }
+</style>
+
+<div class="site-index" style="margin-top: 3em">
+    <h2 style="margin-bottom: .5em">Information On Hits For <?=$hits[0]['location']?></h2>
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
+        'options' => [ 'style' => 'word-wrap: break-word;' ],
 
     ]);
     ?>

@@ -53,10 +53,10 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionLocationinfo()
+    public function actionLocationinfo($location)
     {
         $model = new requestInfo();
-        $hits = $model->locationHitInfo("North Carolina");
+        $hits = $model->locationHitInfo($location);
 
         return $this->render('locationinfo', [
             'hits' => $hits,

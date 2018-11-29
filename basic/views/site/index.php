@@ -20,52 +20,49 @@ $dataPoints = $model->chartData();
 ?>
 
 <div class="site-index" style="padding-top: 1em">
+
     <h2>Location Access Info</h2>
 
-    <?php echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            [
-                'header' => 'Location',
-                'attribute' => 'location',
-                'contentOptions' => ['style'=>'padding-left:30px;'],
+    <div style="margin-bottom: 3em">
+        <?php echo GridView::widget([
+            'dataProvider' => $dataProvider,
+            'columns' => [
+                [
+                    'format' => 'raw',
+                    'header' => 'Location',
+                    'value'=>function ($dataProvider) {
+                        return Html::a($dataProvider['location'], '/site/locationinfo?location=' . $dataProvider['location']);
+                    },
+                    'contentOptions' => ['style'=>'padding:0px 0px 0px 30px;vertical-align: middle;'],
+                ],
+                [
+                    'header' => 'Number Of Hits',
+                    'attribute' => 'COUNT(*)',
+                    'contentOptions' => ['style'=>'padding-left: 30px;'],
+                ],
+            ]
+        ]);
+        ?>
+    </div>
 
+    <div>
+        <?php
+        echo Tabs::widget([
+            'items' => [
+                [
+                    'label' => 'Bar Graph',
+                    'content' => '<div id="chartContainer" style="height: 370px; width: 100%;"></div>',
+                    'active' => true
+                ],
+                [
+                    'label' => 'Pie Chart',
+                    'content' => '<div id="chartContainer2" style="height: 370px; width: 100%;"></div>',
+                    'headerOptions' => [''],
+                ],
             ],
-            [
-                'header' => 'Number Of Hits',
-                'attribute' => 'COUNT(*)',
-                'contentOptions' => ['style'=>'padding-left: 30px;'],
-
-            ],
-            [
-                'format' => 'raw',
-                'header' => 'Additional Information',
-                'value'=>function ($dataProvider) {
-                    return Html::a('Click Here', '/site/locationinfo');
-                },
-                'contentOptions' => ['style'=>'padding:0px 0px 0px 30px;vertical-align: middle;'],
-            ],
-        ]
-    ]);
+        ]);
     ?>
-
-
-    <?php
-    echo Tabs::widget([
-        'items' => [
-            [
-                'label' => 'Bar Graph',
-                'content' => '<div id="chartContainer" style="height: 370px; width: 100%;"></div>',
-                'active' => true
-            ],
-            [
-                'label' => 'Pie Chart',
-                'content' => '<div id="chartContainer2" style="height: 370px; width: 100%;"></div>',
-                'headerOptions' => [''],
-            ],
-        ],
-    ]);
-    ?>
+    </div>
 
 </div>
 
