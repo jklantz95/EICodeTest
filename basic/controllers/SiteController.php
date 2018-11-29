@@ -56,7 +56,7 @@ class SiteController extends Controller
     public function actionLocationinfo()
     {
         $model = new requestInfo();
-        $hits = $model->locationHitInfo('North Carolina');
+        $hits = $model->locationHitInfo("North Carolina");
 
         return $this->render('locationinfo', [
             'hits' => $hits,

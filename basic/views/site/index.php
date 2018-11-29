@@ -6,6 +6,7 @@
 use yii\grid\GridView;
 use yii\data\ArrayDataProvider;
 use yii\bootstrap\Tabs;
+use yii\helpers\Html;
 
 
 $this->title = 'EtailInsight Code Test';
@@ -18,7 +19,7 @@ $dataPoints = $model->chartData();
 
 ?>
 
-<div class="site-index" style="padding-top: 2em">
+<div class="site-index" style="padding-top: 1em">
     <h2>Location Access Info</h2>
 
     <?php echo GridView::widget([
@@ -27,12 +28,22 @@ $dataPoints = $model->chartData();
             [
                 'header' => 'Location',
                 'attribute' => 'location',
+                'contentOptions' => ['style'=>'padding-left:30px;'],
 
             ],
             [
                 'header' => 'Number Of Hits',
                 'attribute' => 'COUNT(*)',
+                'contentOptions' => ['style'=>'padding-left: 30px;'],
 
+            ],
+            [
+                'format' => 'raw',
+                'header' => 'Additional Information',
+                'value'=>function ($dataProvider) {
+                    return Html::a('Click Here', '/site/locationinfo');
+                },
+                'contentOptions' => ['style'=>'padding:0px 0px 0px 30px;vertical-align: middle;'],
             ],
         ]
     ]);
