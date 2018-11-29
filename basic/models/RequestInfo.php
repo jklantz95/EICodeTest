@@ -10,11 +10,12 @@ use yii\base\Model;
  */
 class RequestInfo extends Model
 {
+    public $ip;
 
     /**
- * Retrieves a list of hits by location from the db and returns them to the front end
- * @return an array of hits by location
- */
+     * Retrieves a list of hits by location from the db and returns them to the front end
+     * @return an array of hits by location
+     */
     public function hits()
     {
         return Yii::$app->db->createCommand('SELECT location, COUNT(*) FROM logData GROUP BY location')
@@ -46,6 +47,16 @@ class RequestInfo extends Model
 
         }
         return $chartData;
+    }
+
+    /**
+     * Retrieves an array of access info based on a specific ip
+     * @return an array of hit info for a graph
+     */
+    public function getIPInfo($ip)
+    {
+
+        return $ip;
     }
 
 

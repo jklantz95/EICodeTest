@@ -18,7 +18,6 @@ $dataProvider = new ArrayDataProvider([
 $dataPoints = $model->chartData();
 
 ?>
-
 <div class="site-index" style="padding-top: 1em">
 
     <h2>Location Access Info</h2>

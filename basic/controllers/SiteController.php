@@ -68,10 +68,14 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionIpinfo()
+    public function actionIpinfo($ip)
     {
+        $model = new requestInfo();
 
         return $this->render('ipinfo', [
         ]);
     }
+
+
+
 }

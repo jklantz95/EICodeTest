@@ -22,6 +22,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -41,7 +42,14 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Log Helper', 'url' => ['/site/loghelper']],
         ],
-    ]);
+    ]); ?>
+    <div class="search-container navbar-right" style="padding-right: 2em; padding-top: .9em">
+        <form action="/site/ipinfo">
+            <input type="text" placeholder="Search an IP" name="ip">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <?php
     NavBar::end();
     ?>
 

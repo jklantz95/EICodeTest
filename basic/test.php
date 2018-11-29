@@ -6,32 +6,22 @@
  * Time: 10:53 PM
  */
 
-use yii\grid\GridView;
-use yii\data\SqlDataProvider;
+use app\models\RequestInfo;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
-$count = Yii::$app->db->createCommand('
-    SELECT COUNT(*) FROM locations')->queryScalar();
+$model = New requestInfo();
 
-$dataProvider = new SqlDataProvider([
-    'sql' => 'SELECT * FROM locations ',
-    'totalCount' => $count,
-    'sort' => [
-        'attributes' => [
-            'age',
-            'name' => [
-                'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
-                'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
-                'default' => SORT_DESC,
-                'label' => 'Name',
-            ],
-        ],
-    ],
-    'pagination' => [
-        'pageSize' => 20,
-    ],
-]);
+?>
 
-// get the user records in the current page
-$models = $dataProvider->getModels();
-echo print_r($models);
+<?php $form = ActiveForm::begin(['id' => 'process-form']); ?>
+<div style="max-width: 12em">
+    <?= $form->field($model, 'filename')->input($input); ?>
+</div>
+<div class="form-group">
+    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'Process-Log']) ?>
+</div>
+
+<?php ActiveForm::end(); ?>
+
 
