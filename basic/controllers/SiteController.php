@@ -62,4 +62,16 @@ class SiteController extends Controller
             'hits' => $hits,
         ]);
     }
+
+    /**
+     * Displays specific info of a given ip
+     *
+     * @return Response|string
+     */
+    public function actionIpinfo()
+    {
+
+        return $this->render('ipinfo', [
+        ]);
+    }
 }
