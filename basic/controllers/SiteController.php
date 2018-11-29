@@ -23,7 +23,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->process(Yii::$app->request->post("processLog")['filename']);
-            return $this->refresh();
+            return $this->redirect(['index']);
         }
         else{
             return $this->render('loghelper', [

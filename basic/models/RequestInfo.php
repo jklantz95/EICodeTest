@@ -33,19 +33,21 @@ class RequestInfo extends Model
     }
 
     /**
-     * Retrieves an array of correctly structured hits per location for a graph
+     * Retrieves an array of correctly structured hits per location for a bar graph
      * @return an array of hit info for a graph
      */
     public function chartData()
     {
         $hits = $this->hits();
-        $chartData[0] = array('Location', 'Hits');
-        $count = 1;
+        $count = 0;
+        $chartData = [];
         foreach($hits as $hit){
-            $chartData[$count++] = array($hit['location'],  (int)$hit[ 'COUNT(*)']);
+            $chartData[$count++] = array("y" => (int)$hit[ 'COUNT(*)'], "label" => $hit['location']);
+
         }
         return $chartData;
     }
+
 
 
 

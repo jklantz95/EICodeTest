@@ -6,20 +6,32 @@
  * Time: 10:53 PM
  */
 
+use yii\grid\GridView;
+use yii\data\SqlDataProvider;
 
-$log_file = "logs/access_log.txt";
-$pattern = '/^([^ ]+) ([^ ]+) ([^ ]+) (\[[^\]]+\]) "(.*)" ([0-9\-]+) ([0-9\-]+) "(.*)" "(.*)"$/';
+$count = Yii::$app->db->createCommand('
+    SELECT COUNT(*) FROM locations')->queryScalar();
 
-$file = fopen($log_file,'r') or die($php_errormsg);
+$dataProvider = new SqlDataProvider([
+    'sql' => 'SELECT * FROM locations ',
+    'totalCount' => $count,
+    'sort' => [
+        'attributes' => [
+            'age',
+            'name' => [
+                'asc' => ['first_name' => SORT_ASC, 'last_name' => SORT_ASC],
+                'desc' => ['first_name' => SORT_DESC, 'last_name' => SORT_DESC],
+                'default' => SORT_DESC,
+                'label' => 'Name',
+            ],
+        ],
+    ],
+    'pagination' => [
+        'pageSize' => 20,
+    ],
+]);
 
-while (! feof($file)) {
-    $line = fgets($file);
-    preg_match($pattern,$line,$matches);
-    if($matches){
-        print(print_r($matches));
-    }
-
-}
-fclose($file) or die($php_errormsg);
-
+// get the user records in the current page
+$models = $dataProvider->getModels();
+echo print_r($models);
 
