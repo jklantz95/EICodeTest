@@ -15,7 +15,7 @@ class SiteController extends Controller
     /**
      * Displays log Helper page.
      *
-     * @return string
+     * @return Response|string
      */
     public function actionLoghelper()
     {

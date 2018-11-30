@@ -80,16 +80,4 @@ class RequestInfo extends Model
         return  array($ipData);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -71,6 +71,10 @@ class processLog extends Model
 
     }
 
+    /**
+     * Retrieves a list of log file names from the log directory
+     * @return array of log filenames
+     */
     public function getLogs(){
         return array_diff(scandir("../logs"), array('..', '.'));
     }
