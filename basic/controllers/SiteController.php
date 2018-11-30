@@ -56,7 +56,7 @@ class SiteController extends Controller
     public function actionLocationinfo($location)
     {
         $model = new requestInfo();
-        $hits = $model->locationHitInfo($location);
+        $hits = $model->getLocationHitInfo($location);
 
         return $this->render('locationinfo', [
             'hits' => $hits,
@@ -72,7 +72,10 @@ class SiteController extends Controller
     {
         $model = new requestInfo();
 
+
         return $this->render('ipinfo', [
+            'model' => $model,
+            'ip' => $ip,
         ]);
     }
 

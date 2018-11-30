@@ -4,6 +4,7 @@
 /* @var $hits array of hit info for a specific location */
 
 use yii\grid\GridView;
+use yii\helpers\Html;
 use yii\data\ArrayDataProvider;
 
 
@@ -30,6 +31,46 @@ $dataProvider = new ArrayDataProvider([
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'options' => [ 'style' => 'word-wrap: break-word;' ],
+        'columns' => [
+            [
+                'header' => 'Location',
+                'attribute' => 'location',
+                'contentOptions' => ['style'=>'padding-left: 30px;'],
+            ],
+            [
+                'format' => 'raw',
+                'header' => 'IP',
+                'value'=>function ($dataProvider) {
+                    return Html::a($dataProvider['ip'], '/site/ipinfo?ip=' . $dataProvider['ip']);
+                },
+            ],
+            [
+                'header' => 'Date',
+                'attribute' => 'date',
+                'contentOptions' => ['style'=>'padding-left: 30px;'],
+            ],
+            [
+                'header' => 'Request',
+                'attribute' => 'request',
+                'contentOptions' => ['style'=>'padding-left: 30px;'],
+            ],
+            [
+                'header' => 'Status',
+                'attribute' => 'status',
+                'contentOptions' => ['style'=>'padding-left: 30px;'],
+            ],
+
+            [
+                'header' => 'Referer',
+                'attribute' => 'referer',
+                'contentOptions' => ['style'=>'padding-left: 30px;'],
+            ],
+            [
+                'header' => 'User Agent',
+                'attribute' => 'user_agent',
+                'contentOptions' => ['style'=>'padding-left: 30px;'],
+            ],
+        ]
 
     ]);
     ?>

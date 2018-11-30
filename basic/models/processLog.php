@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Model;
 
 /**
- * ContactForm is the model behind the contact form.
+ * processLog processes input data from the front end
  */
 class processLog extends Model
 {

@@ -12,10 +12,10 @@ use yii\helpers\Html;
 $this->title = 'EtailInsight Code Test';
 
 $dataProvider = new ArrayDataProvider([
-    'allModels' =>  $model->hits(),
+    'allModels' =>  $model->getHits(),
 ]);
 
-$dataPoints = $model->chartData();
+$dataPoints = $model->getChartData();
 
 ?>
 <div class="site-index" style="padding-top: 1em">

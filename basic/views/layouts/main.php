@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -30,7 +30,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => "EI Code Test",
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -64,7 +64,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; EtailInsights <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Jacob Lantz <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
